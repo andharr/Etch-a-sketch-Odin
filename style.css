@@ -32,6 +32,7 @@
 
 /*////////////////////
 ///////////////////*/
+
 body {
   display: flex;
   justify-content: center;
@@ -39,21 +40,16 @@ body {
 }
 
 .container {
-    /* width: 28rem;
-    height: 28rem;
-    display: flex;
+    width: 500px;
+    height: 500px;
+    /* display: flex;
     flex-wrap: wrap; */
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: masonry;
+    /* grid-template-columns: repeat(4, 1fr); */
 }
 
 .grid {
-    width: 7rem;
-    height: 7rem;
+    /* width: 7rem;
+    height: 7rem; */
     border: 1px solid black;
 }
-
-/* .grid:hover {
-  background-color: rebeccapurple;
-} */

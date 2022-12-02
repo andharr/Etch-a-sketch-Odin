@@ -1,14 +1,30 @@
 //DOM Elements
 let container = document.querySelector('.container')
-let newDiv = document.createElement('div')
+let box = document.createElement('div')
+
+
+//Get #sides from button
+let btn = document.querySelector('.getStarted')
+let numSides = 0;
+btn.addEventListener('click', function(event) {
+    numSides = prompt('How many squares?')
+    writeScreen(numSides)
+    btn.style.visibility = 'hidden'
+})
 
 
 //Grid Creation
-for (let i = 1; i<=16; i++) {
-    newDiv[i] = document.createElement('div')
-    newDiv[i].className = 'grid'
-    newDiv[i].id = i
-    container.appendChild(newDiv[i])
+function writeScreen(size) {
+    container.style.gridTemplateRows = `repeat(${size}, 1fr`
+    container.style.gridTemplateColumns = `repeat(${size}, 1fr`
+
+    for (let i = 1; i<=size*size; i++) {
+        box[i] = document.createElement('div')
+        box[i].className = 'grid'
+        box[i].id = i
+        box[i].addEventListener('mouseenter', changeColor)
+        container.appendChild(box[i])
+    }
 }
 
 
@@ -33,7 +49,10 @@ function changeColor(event) {
 }
 
 
-let grids = document.querySelectorAll('.grid')
+// let grids = document.querySelectorAll('.grid')
 
-grids.forEach(item => item.addEventListener('mouseenter', changeColor))
+// grids.forEach(item => item.addEventListener('mouseenter', changeColor))
 
+// function tester() {
+//     console.log('FART')
+// }
