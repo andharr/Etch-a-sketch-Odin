@@ -1,15 +1,22 @@
 //DOM Elements
 let container = document.querySelector('.container')
 let box = document.createElement('div')
+let title = document.querySelector('.title')
+let subtitle = document.querySelector('.subtitle')
+let subsubtitle = document.querySelector('.subsubtitle')
 
 
 //Get #sides from button
 let btn = document.querySelector('.getStarted')
 let numSides = 0;
 btn.addEventListener('click', function(event) {
-    numSides = prompt('How many squares?')
+    numSides = Math.min(200,parseInt(prompt("How many squares per side? (200 max or your computer will explode and I can't afford to fix it. I'm making prototypes here after all, this isn't a paid gig. Please be kind.)")))
     writeScreen(numSides)
-    btn.style.visibility = 'hidden'
+    btn.style.visibility = 'collapse'
+    container.style.visibility = 'visible'
+    title.style.visibility = 'collapse'
+    subtitle.style.visibility = 'collapse'
+    subsubtitle.style.visibility = 'collapse'
 })
 
 
@@ -33,12 +40,12 @@ function randomRGB() {
     return `rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)})`
 }
 
-// function to generate random number
+//Generate random number
 function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1))
 }
 
-// function to generate a random RGB color
+//Generate a random RGB color
 function randomRGB() {
     return `rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)})`
 }
@@ -47,12 +54,3 @@ function randomRGB() {
 function changeColor(event) {
     event.target.style.backgroundColor = randomRGB()
 }
-
-
-// let grids = document.querySelectorAll('.grid')
-
-// grids.forEach(item => item.addEventListener('mouseenter', changeColor))
-
-// function tester() {
-//     console.log('FART')
-// }
